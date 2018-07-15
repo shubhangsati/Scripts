@@ -4,26 +4,40 @@ case $1 in
 		echo Compiling $2.c
 		gcc $2.c -o $2
 		echo Done compiling
-		echo Running $2
-		./$2
+		echo Running...
+		if [ -n "$3" ]; then
+			./$2 < $3
+		else
+			./$2
+		fi
 		;;
 	cpp)
 		echo Compiling $2.cpp
 		g++ $2.cpp -o $2
 		echo Done compiling
-		echo Running $2
-		./$2
+		echo Running...
+		if [ -n "$3" ]; then
+			./$2 < $3
+		else
+			./$2
+		fi
 		;;
 	java)
 		echo Compiling $2.java
 		javac $2.java
 		echo Done Compiling
-		echo Running java $2
+		echo Running...
+		if [ -n "$3" ]; then
+			java $2 < $3
+		else
+			java $2
+		fi
 		java $2
 		;;
 	*)
-		echo "Usage: compiler language[c, cpp, java] filename[without the extension]"
+		echo "Usage: compiler language[c, cpp, java] filename[without the extension] input_file(optional)"
 		;;
 esac
 
 	
+
