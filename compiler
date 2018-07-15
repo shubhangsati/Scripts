@@ -1,15 +1,24 @@
 #!/bin/bash
 case $1 in
 	c)
+		echo Compiling $2.c
 		gcc $2.c -o $2
+		echo Done compiling
+		echo Running $2
 		./$2
 		;;
 	cpp)
+		echo Compiling $2.cpp
 		g++ $2.cpp -o $2
+		echo Done compiling
+		echo Running $2
 		./$2
 		;;
 	java)
+		echo Compiling $2.java
 		javac $2.java
+		echo Done Compiling
+		echo Running java $2
 		java $2
 		;;
 	*)
