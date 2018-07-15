@@ -1,0 +1,20 @@
+#!/bin/bash
+case $1 in
+	c)
+		gcc $2.c -o $2
+		./$2
+		;;
+	cpp)
+		g++ $2.cpp -o $2
+		./$2
+		;;
+	java)
+		javac $2.java
+		java $2
+		;;
+	*)
+		echo "Usage: compiler language[c, cpp, java] filename[without the extension]"
+		;;
+esac
+
+	
